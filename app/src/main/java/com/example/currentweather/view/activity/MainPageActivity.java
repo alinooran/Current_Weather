@@ -26,7 +26,6 @@ public class MainPageActivity extends AppCompatActivity implements ApiService.On
         final EditText searchBox = findViewById(R.id.search_box);
         ImageButton searchButton = findViewById(R.id.search_button);
         final ApiService apiService = new ApiService(this,progressBar);
-        //progressBar.setVisibility(View.INVISIBLE);
         relativeLayout = findViewById(R.id.relative_layout);
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,31 +34,6 @@ public class MainPageActivity extends AppCompatActivity implements ApiService.On
                 apiService.getData(searchBox.getText().toString(), MainPageActivity.this);
             }
         });
-//        searchButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                ApiServiceThread thread=new ApiServiceThread(MainPageActivity.this,searchBox.getText().toString(),progressBar,MainPageActivity.this);
-//                thread.start();
-//                progressBar.setVisibility(View.VISIBLE);
-//            }
-//        });
-//    }
-
-
-//    @Override
-//    public void onReceived(WeatherInfo weatherInfo) {
-//        if (weatherInfo == null) {
-//            Snackbar.make(relativeLayout, "Error", Snackbar.LENGTH_SHORT).show();
-//        } else {
-//            Intent intent = new Intent(MainPageActivity.this, WeatherInfoActivity.class);
-//            intent.putExtra("temp", weatherInfo.getTemp())
-//                    .putExtra("minTemp", weatherInfo.getMinTemp())
-//                    .putExtra("maxTemp", weatherInfo.getMaxTemp())
-//                    .putExtra("description", weatherInfo.getDescription())
-//                    .putExtra("humidity", weatherInfo.getHumidity());
-//            startActivity(intent);
-//        }
-//    }
     }
 
     @Override
